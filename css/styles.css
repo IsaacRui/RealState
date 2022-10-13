@@ -1,0 +1,821 @@
+/* Aquí utilizamos un elemento que se le podria llamar como normalize que sirve para quitar todos los margenes y espacios que tenga por default el HTML*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Aqui le indicamos al body que ejecute la fuente "Lato" que agregamos en el HTML, le di un background a todo el body con unos puntos grises con la característica de radial gradient y le doy posición al fondo para que queden mas simétricos con el sitio */
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1em;
+    line-height: 2;
+    background-image: radial-gradient(#212121 3%, transparent 1%);
+    background-position: 40px, 40px, 50px, 50px;
+    background-size: 30px 30px;
+}
+
+
+/* Generales */
+
+
+/* Cree una clase general para todos los contenedores para que queden centrados directamente al poner esta clase */
+
+.contenedor {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.imagen {
+    margin: 0 auto;
+}
+
+
+/* Utilidades */
+
+
+/* Cree varias utilidades para usarlas en secciones, títulos, imágenes, contenidos para que cuando sea necesario utilizar alguna de ellas solo ponga la clase directamente en el div, contenedor o sección. Creo que es fucnional para no repetir muchas veces el CSS */
+
+
+/* Con esta clase le digo a todas las imagenes que tengan su ancho completo*/
+
+img {
+    max-width: 100%;
+}
+
+
+/* con esta les doy margenes arriba y abajo a cada titulo de cada sección*/
+
+.seccion {
+    margin-top: 8em;
+    margin-bottom: 8em;
+}
+
+
+/* con estas dos les doy estilo a los títulos */
+
+.fw700 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.fw300 {
+    font-weight: 300;
+}
+
+
+/* con esta centro los titulos */
+
+.centrado {
+    text-align: center;
+    margin: 1em 0;
+}
+
+
+/* con esta vuelvo bloque cualquier elemento*/
+
+.d-block {
+    display: block;
+}
+
+
+/* Botones */
+
+
+/* También cree unas clases generales de botones, porque los utilizo en varias secciones del sitio. En algunas clases solo cambia el color.*/
+
+.boton {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 1em 3em;
+    margin-top: 3em;
+    text-align: center;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton-amarillo {
+    background-color: #e08709;
+}
+
+.boton-verde {
+    background-color: #71b100;
+}
+
+
+/* Header */
+
+.site-header {
+    background-color: #000;
+    padding: 1em 0 3em 0;
+}
+
+
+/* con esta clase le hago el header con la imágen y título */
+
+.site-header.inicio {
+    background: url(../img/header.jpg);
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/* con este le doy separacion al logo y al menu */
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
+}
+
+.contenido-hamburguesa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+
+/* con esta le doy estilos al titulo dentro del header */
+
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2em;
+    margin-top: 3em;
+    max-width: 60em;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 5em;
+}
+
+
+/* aqui le doy estilos al menu */
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    position: relative;
+    z-index: 1;
+}
+
+.inicio h1 {
+    position: relative;
+}
+
+
+/* con esta clase hago la linea blanca para el titulo que se muestra solo en desktop */
+
+.inicio h1::after {
+    content: "";
+    display: block;
+    width: 67%;
+    border-bottom: 3px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 27%;
+}
+
+
+/* Menu Hamburguesa */
+
+
+/* con esta clase creo el menu que sale solo en responsive, tiene una posición absoluta, para que salga de visibilidad y entre en dispositivos moviles al dar click en el menu hamburguesa */
+
+.toggle-nav {
+    padding: 40px;
+    position: absolute;
+    top: -39px;
+    right: -50px;
+    z-index: 2;
+    display: none;
+}
+
+
+/* aqui le estoy dando clase al menu hamburguesa para centrarlo con el logotipo, creamos como un contenedor con display flex, y le decimos que calcule la altura con un calc que son 3.5 em de la altura total de el contenedor menos 10px de los mismos */
+
+.toggle-nav a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: calc(3.5em - 10px);
+}
+
+
+/* con esta quitamos las viñetas de la lista*/
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+
+/* aquí le decimos que le de un margen de 20 pixeles pero solo al último de los elementos par que los demás no se vean afectados */
+
+nav li:not(:last-child) {
+    margin-right: 20px;
+}
+
+nav a {
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+
+/* con estas 3 le decimos que no sea visible en desktop*/
+
+.cerrar,
+.abrir {
+    display: none;
+}
+
+.datos {
+    display: none;
+}
+
+
+/* Navegacion */
+
+
+/* aquí damos estilos a los links del menu*/
+
+.navegacion a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 2em;
+    font-size: 1em;
+}
+
+
+/* aqui solo afectamos al último enlace */
+
+.navegacion a:last-of-type {
+    margin-right: 0px;
+}
+
+
+/* con esto le decimos que cambie de color al pasar el cursor */
+
+.navegacion a:hover {
+    color: #e08709;
+}
+
+
+/* sección de beneficios */
+
+
+/* aquí creamos espacio entre cada ícono */
+
+.iconos-nosotros {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
+}
+
+
+/* aqio le indicamos que calcule y divida el mismo espacio entre 3 para cada ícono */
+
+.icono {
+    flex-basis: calc( 33.3% - 1em);
+    text-align: center;
+}
+
+.icono h3 {
+    text-transform: uppercase;
+}
+
+
+/* Anuncios */
+
+
+/* aqui le damos un grid para que reparta los anunios en medidas iguales entre 3 */
+
+.contenedor-anuncios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2em;
+}
+
+.img-anuncio {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* igual aqui le damos la misma medida entre 3*/
+
+.anuncio {
+    flex: 0 calc( 33.3% - 10px);
+    border: 1px solid #b5b5b5;
+    background-color: #f5f5f5;
+    margin-bottom: 2em;
+}
+
+
+/* aqui damos espacios */
+
+.contenido-anuncio {
+    padding: 2em;
+}
+
+.contenido-anuncio h3,
+.contenido-anuncio p {
+    margin: 0;
+}
+
+.precio {
+    color: #71b100;
+    font-weight: 700;
+}
+
+
+/* aquí damos estilos a los iconos dentro del anuncio para que quite las viñetas de la lista y los separe con flex */
+
+.iconos {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    max-width: 500px;
+}
+
+.iconos li {
+    /*flex: 1;*/
+    display: flex;
+}
+
+.iconos li img {
+    margin-right: 2em;
+}
+
+
+/* aquí le decimo que con felx end el boton se vaya de lado derecho, osea al final del contenedor de los anuncios */
+
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Contacto Home */
+
+
+/* aquí creamos un banner con imagen de fonto y la centramos */
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 25em;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-contacto {
+    color: #ffffff;
+    text-align: center;
+}
+
+.contenedor-contacto p {
+    margin-bottom: 3em;
+}
+
+.contacto p {
+    font-size: .5em;
+}
+
+
+/* Sección Inferior */
+
+.seccion-inferior {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* aqui de decimos que tenga una base del 60% de ancho para los anuncios que quedan de lado izquierdo y poder hacer como un sidebar */
+
+.seccion-inferior .blog {
+    flex-basis: 60%;
+}
+
+
+/* y aqui le decimos que el sidebar sea de el otro 40% y que se vaya a la derecha con espacios de 2 ems */
+
+.seccion-inferior .testimoniales {
+    flex-basis: calc(40% - 2em);
+}
+
+
+/* en los siguientes elementos afectamos a las entradas que quedan de lado izquierdo */
+
+.entrada-blog {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+.entrada-blog:last-of-type {
+    margin: 0;
+}
+
+
+/* y aqui hacemos casi lo mismo para darle espacio a la imagen de cada entrada y a su texto que queda de lado derecho */
+
+.entrada-blog .imagen {
+    flex-basis: 40%;
+}
+
+.entrada-blog .texto-entrada {
+    flex-basis: calc(60% - 3em);
+}
+
+.texto-entrada h3 {
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+}
+
+.texto-entrada a {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+/* con esto creamos un pseudoelemnto para crear una linea al final del titulo con el after */
+
+.texto-entrada a::after {
+    content: '';
+    display: block;
+    width: 15em;
+    height: 5px;
+    background-color: #71b100;
+    margin-top: 1em;
+}
+
+.texto-entrada span {
+    color: #e08709;
+}
+
+.texto-entrada p {
+    background-color: #fff;
+    padding: 2px;
+    text-align: justify;
+}
+
+
+/* Testimoniales */
+
+
+/* aqui damos estilo al recuadro verde con espacios al rededor para el texto y que se redondeen las esquinas */
+
+.testimonial {
+    background-color: #71b100;
+    font-size: 1em;
+    padding: 2em 2em;
+    color: #ffffff;
+    border-radius: 2em;
+}
+
+.testimonial p {
+    text-align: right;
+}
+
+
+/* aquí utilizamos un pseudoelemento before para que las comillas esten antes del texto y las metemos como imágen */
+
+.testimonial blockquote::before {
+    content: '';
+    background-image: url(../img/comilla.svg);
+    width: 3em;
+    height: 3em;
+    position: absolute;
+    left: 0em;
+}
+
+.testimonial blockquote {
+    position: relative;
+    padding-left: 5em;
+    font-weight: 300;
+}
+
+
+/** Nosotros **/
+
+
+/* aqui utilizamos grid para dar 2 columanas iguales entre la imagen y texto */
+
+.contenido-nosotros {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2em;
+}
+
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 1em;
+    margin: 0;
+    padding: 1em 0 1em 0;
+}
+
+.text p {
+    text-align: justify;
+}
+
+
+/** Anuncio **/
+
+
+/* con esto hice el recuadro para poder separar, precios e iconos del resumen de la propiedad */
+
+.resumen-propiedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #000000;
+    background-color: #fff;
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
+.texto p {
+    background-color: #fff;
+    padding: 2px;
+    text-align: justify;
+}
+
+
+/** Contacto **/
+
+
+/* aquí cree tres diferentes clases para cada seccion del formulario de contacto, cada una se basa en los títulos */
+
+.form-uno h3,
+.form-dos h3,
+.form-tres h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* a cada uno también le cree un span para poder ponerle una linea al final del texto */
+
+.titulo h3 span {
+    position: relative;
+}
+
+
+/* con este span puedo crear un pseudo elemento y poner la linea después del texto, tuve que poner en la clase anterior un overlfow para que todas las lineas sean iguales y no se salgan del recuadro naranja */
+
+.titulo h3 span::after {
+    content: "";
+    display: block;
+    width: 100vw;
+    border-bottom: 1px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 105%;
+}
+
+
+/* aquí solo de di un color de fondo a cada sección */
+
+.form-uno,
+.form-dos,
+.form-tres {
+    background-color: #e08709;
+    padding: 1em 3em;
+}
+
+form p {
+    font-size: 1em;
+    margin: 2em 0 0 0;
+}
+
+label {
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+}
+
+
+/* con esto le doy estilo a todos los recuadros a rellenar o eleegir oociónes del formularios de contacto, excepto al boton enviar por eso el :not */
+
+input:not([type="submit"]),
+textarea,
+select {
+    padding: 1em;
+    display: block;
+    width: 100%;
+    background-color: #e1e1ee;
+    margin-bottom: 2em;
+    border: none;
+    border-radius: 1em;
+}
+
+
+/* con esto de damos su valor por default a los seleccionadores circulares */
+
+input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+
+/* aqui le quitamos cualquier aparencia por default del navegador en el seleccionador desplegable, el webkit se basa en otros navergadroes como safari */
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    height: 20em;
+}
+
+
+/* con esto de damos un ancho maximo de 400 pixeles a el telefono e email y los ponemos en linea con flex y separamos con space between */
+
+.forma-contacto {
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Footer */
+
+
+/* aqui solo de damos un color de fondo y nada de margen abajo */
+
+.site-footer {
+    background-color: #000;
+    margin-bottom: 0;
+}
+
+
+/* aquí le damos espacio al texto arriba y abajo y separamos el menu del copyright */
+
+.contenedor-footer {
+    padding: 3em 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
+}
+
+
+/* Responsive */
+
+
+/* aquí le vamos a dar estilos a partir de los 1200 px que podría usarse para tablets, al menu le quitamos un poco de espacio, a la derecha e izquierda, quitamos la linea del titulo que aparece en header, y al los anuncios en vez de que sean 3 en fila le decimos que sean dos con el grid */
+
+@media screen and (max-width: 1200px) {
+    .menu {
+        padding: 0em 1em;
+    }
+    .inicio h1::after {
+        display: none;
+    }
+    .contenedor-anuncios {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 2em;
+    }
+}
+
+
+/* con esto le damos estilos a partir de los 900px que funcionaria para celulares */
+
+@media screen and (max-width: 900px) {
+    .toggle-nav {
+        /* con eso de indicamos que el menu hamburguesa sea un bloque */
+        display: block;
+    }
+    .menu {
+        /* aquí le decemos que el menu sea bloque también para que se vea de manera vertical */
+        display: block;
+    }
+    /* aquí hacemos visilbes los datos del menu que van abajo como el telefono, email */
+    .datos {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50%;
+        color: #fff;
+        font-size: 25px;
+        border-top: 2px solid #fff;
+    }
+    /* con esta clase le decimos que el menu para moviles este por arriba de todo lo visible por eso le damos un top -100 y que ocupe todo el espacio del navegador con 100vh, para que cuando se le de clic al menu hamburguesa salga de arriba para abajo, le pongo una transición para que salga como un estilo slider y le pones un zindex 2 para que este por encima de todo */
+    nav {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        padding: 20px;
+        width: calc(100% - 40px);
+        height: calc(100vh - 40px);
+        background-color: #000;
+        transition: top 0.8s;
+        z-index: 2;
+    }
+    /* con este de indico que de la esquina superior izquierda sea quede anclado y se muestre el menu, osea que de los -100px que tenia sale y se quede en 0 */
+    .desplegable {
+        top: 0;
+        font-size: 2em;
+    }
+    /* estos son estilos para la navegacion creando margenes al primer y último y que sea vea vertical con bloque */
+    nav ul {
+        display: block;
+    }
+    nav li:not(:last-child) {
+        margin-right: 0;
+    }
+    nav li:not(:first-child) {
+        margin-top: 20px;
+    }
+    nav a {
+        color: #fff;
+        font-size: 2.5em;
+    }
+    /* esta clase es para cerrar el menu desplegable poniendolo como posicion absoluta en la esquina superior derecha */
+    .cerrar {
+        display: block;
+        width: 50px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+    .contenido-header h1 {
+        display: flex;
+        font-size: 2em;
+        width: 90%;
+    }
+    /* con esto le indicamos a el contenido de nostros que se vea en una sola fila vertical */
+    .contenido-nosotros {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-column-gap: 2em;
+    }
+    .iconos-nosotros {
+        display: block;
+    }
+    .icono {
+        margin-top: 2em;
+    }
+    .contenido-header h1 {
+        padding: 0 1em;
+    }
+    /* aqui le decimos que los anucncions tenga un ancho maximo de 90% y con margen arriba y abajo de cero y a los lados auto para que quede centrado */
+    .contenedor-anuncios {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+    /* de aquí para abajo son clases para centrar contenido, dar espacios y márgenes */
+    .ver-todas {
+        justify-content: center;
+    }
+    .contenedor-contacto {
+        padding: 0 2em;
+    }
+    form {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .seccion-inferior {
+        display: block;
+    }
+    .entrada-blog {
+        padding: 0 1em;
+    }
+    .testimoniales {
+        padding: 0 1em;
+    }
+    .contenedor-footer {
+        display: block;
+    }
+    .copyright {
+        text-align: center;
+        margin: 2em;
+    }
+}
